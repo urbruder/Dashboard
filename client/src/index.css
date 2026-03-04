@@ -1,1 +1,108 @@
 @import "tailwindcss";
+
+/* ── Global Resets & Tokens ── */
+:root {
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --color-base: #060910;
+    --color-surface: #0c1021;
+    --color-surface-elevated: #131a2e;
+    --color-surface-hover: #1a2340;
+    --color-border: #1c2541;
+    --color-border-subtle: #151d33;
+    --color-text-primary: #e8ecf4;
+    --color-text-secondary: #8892a8;
+    --color-text-muted: #5a6478;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--color-base);
+    color: var(--color-text-primary);
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a3454;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3a4a6b;
+}
+
+/* ── Selection ── */
+::selection {
+    background: rgba(99, 102, 241, 0.25);
+    color: #fff;
+}
+
+/* ── Smooth transitions for interactive elements ── */
+a,
+button {
+    transition: all 0.2s ease;
+}
+
+/* ── Glow animation for live status ── */
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 6px currentColor;
+    }
+
+    50% {
+        opacity: 0.6;
+        box-shadow: 0 0 14px currentColor;
+    }
+}
+
+.animate-glow {
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* ── Card hover lift ── */
+.card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Glass panel base ── */
+.panel {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.35);
+}
+
+.panel-header {
+    background: var(--color-surface-elevated);
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* ── Timeline connector ── */
+.timeline-line {
+    background: linear-gradient(to bottom, var(--color-border), transparent);
+}
